@@ -1,0 +1,33 @@
+.page-header {
+    background-color: #222;
+    color: #9d9d9d;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 120px;
+    display: flex;
+    align-items: center;
+}
+
+.page-header h1 {
+    margin-top: 0;
+    padding: 20px 0 0 40px;
+}
+
+footer {
+    background-color: #222;
+    color: #9d9d9d;
+    margin-top: 0;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+footer h1 {
+    margin-top: 0;
+    padding: 20px 0 0 40px;
+}
+
+.nav-sidebar {
+    font-size: 2em;
+}
+
