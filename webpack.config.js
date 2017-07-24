@@ -51,7 +51,23 @@ module.exports = {
         use: [
           { loader: 'file-loader?name=[path][name].[ext]' }
         ]
-      }
+      },
+
+      // { does not work
+      //   test: /\.js$/, // include .js files
+      //   enforce: "pre", // preload the jshint loader
+      //   exclude: /node_modules/, // exclude any and all files in the node_modules folder
+      //   use: [
+      //     {
+      //       loader: "jshint-loader",
+      //       options: {
+      //         camelcase: true,
+      //         emitErrors: false,
+      //         failOnHint: false
+      //       }
+      //     }
+      //   ]
+      // }
     ]
   },
 

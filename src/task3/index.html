@@ -2,13 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tasks1</title>
+    <title>Tasks3</title>
 </head>
 <body>
+<div class="container-fluid">
+    <form class="form-inline">
+        <div class="form-group">
+            <label for="vertices">Vertices</label>
+            <input type="number" class="form-control" id="vertices" min="3" max="500" placeholder="1-500" value="10">
+        </div>
+        <div class="form-group">
+            <label for="numberM">M</label>
+            <input type="number" class="form-control" id="numberM" min="1" max="5" placeholder="1-5" value="3">
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-md-6">
+
+            <div class="svg-wrapper">
+                <svg width="500" height="500"></svg>
+                <div class="label">SVG</div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="canvas-wrapper">
+                <canvas id="canvas-element" width="500" height="500">
+
+                </canvas>
+                <div class="label">CANVAS</div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <script src="index.js">
 
 </script>
+
 </body>
 </html>

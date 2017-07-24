@@ -1,7 +1,7 @@
 js-test-task
 ===============
 
-1. Install all required npm packadges:
+1. Install all required npm packages:
 
    npm install
 
