@@ -25,6 +25,7 @@ module.exports = {
   ],
   output: {
     filename: '[name]/index.js',
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist')
   },
   module: {
@@ -40,7 +41,7 @@ module.exports = {
       },
 
       {
-        test: /\.(woff|woff2|ttf|eot|svg)$/,
+        test: /\.(woff|woff2|ttf|eot|svg|mp4)$/,
         use: [
           { loader: 'file-loader?name=assets/[name].[ext]' }
         ]
