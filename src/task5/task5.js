@@ -10,9 +10,10 @@ import './style.css';
 
 
 const ENTER_KEYCODE = 13;
-const scrollDelay = 1000;
-const reachablePartOfPage = 0.8;
+const SCROLL_DELAY = 1000;
+const REACHABLE_PART_OF_PAGE = 0.7;
 const IMAGES_PER_QUERY = 10;
+const SECOND_SEARCH_DELAY = 1000;
 
 let $searchButton = $('#search-button');
 let $inputQuery = $('#search-query');
@@ -37,11 +38,11 @@ $inputQuery.on('keypress', function (event) {
 
 window.addEventListener('scroll', function () { //load new images when user reaches bottom part of the page
 
-  if (new Date() - date < scrollDelay) return;  //delay is required to prevent excess call of search
+  if (new Date() - date < SCROLL_DELAY) return;  //delay is required to prevent excess call of search
 
   date = new Date();
 
-  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight * reachablePartOfPage) {
+  if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight * REACHABLE_PART_OF_PAGE) {
     search();
   }
 
@@ -52,18 +53,23 @@ function search() {
   let googleApiLink = createQuerry($inputQuery.val());
   executeQuerry(googleApiLink);
 
-  // if (window.innerHeight >= document.body.offsetHeight * reachablePartOfPage) { //fill page with images until scroll appear
-  //   setTimeout(search, 1000);
-  // }
+  if (window.innerHeight >= document.body.offsetHeight * REACHABLE_PART_OF_PAGE) { //fill page with images until scroll appear
+    setTimeout(function() {
+      if (window.innerHeight >= document.body.offsetHeight * REACHABLE_PART_OF_PAGE) {
+        search();
+      }
+    }, SECOND_SEARCH_DELAY);
+  }
+
 }
 
 function createQuerry(queryString) {
   const engineID = '004486783337092485371%3Axcbayn685lg';
-  const apiKey = 'AIzaSyDPCFJ7Fv3-QxxXzcAfIywKEPLWqclxE4I';
+  const apiKey = 'AIzaSyDIWRiDmjuwuBez5E_PJKag9RStNDX3Myc';
 
   let googleQuery = `https://www.googleapis.com/customsearch/v1?q=${queryString}&cx=${engineID}&start=${imageIndex}&safe=high&searchType=image&key=${apiKey}`;
   imageIndex += IMAGES_PER_QUERY;
-  console.log(googleQuery);;
+  console.log(googleQuery);
   return googleQuery;
 }
 
