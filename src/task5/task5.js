@@ -69,7 +69,6 @@ function createQuerry(queryString) {
 
   let googleQuery = `https://www.googleapis.com/customsearch/v1?q=${queryString}&cx=${engineID}&start=${imageIndex}&safe=high&searchType=image&key=${apiKey}`;
   imageIndex += IMAGES_PER_QUERY;
-  console.log(googleQuery);
   return googleQuery;
 }
 
